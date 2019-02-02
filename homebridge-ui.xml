@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Date>2019-02-02</Date>
+  <Beta>False</Beta>
+  <Category>HomeAutomation Tools</Category>
+  <Name>HomeBridge with webGUI</Name>
+  <Project>https://github.com/nfarina/homebridge/</Project>
+  <Overview>
+    Homebridge with GUI (default user:pass=admin:admin) is a lightweight NodeJS server you can run on your home network that emulates the iOS HomeKit API. It supports Plugins, which are community-contributed modules that provide a basic bridge from HomeKit to various 3rd-party APIs provided by manufacturers of "smart home" devices.
+    Instruction:
+      1. in the "packages" variable, place the all packages name you wanted in the box seperated by space (Example is in the box, Plugin list is in https://www.npmjs.com/search?q=homebridge-plugin)
+      2. create the container
+      3. create the config.json in the homebridge directory (/mnt/user/appdata/homebridge/config.json)
+      4. add your devices to the config.json by refering to https://github.com/nfarina/homebridge
+  </Overview>
+  <Description>
+    Instruction:
+      1. in the "packages" variable, place the all packages name you wanted in the box seperated by space (Example is in the box, Plugin list is in https://www.npmjs.com/search?q=homebridge-plugin)
+      2. create the container
+      3. create the config.json in the homebridge directory (/mnt/user/appdata/homebridge/config.json)
+      4. add your devices to the config.json by refering to https://github.com/nfarina/homebridge
+  </Description>
+  <Registry>https://hub.docker.com/r/siwatinc/homebridge_gui_unraid/</Registry>
+  <GitHub>https://github.com/SiwatINC/unraid-ca-repository</GitHub>
+  <Repository>siwatinc/homebridge_gui_unraid</Repository>
+  <Support>https://forums.unraid.net/topic/75588-support-siwats-docker-repository/</Support>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>1000</Value>
+    </Variable>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>1000</Value>
+    </Variable>
+    <Variable>
+      <Name>HOMEBRIDGE_INSECURE</Name>
+      <Value>1</Value>
+    </Variable>
+    <Variable>
+      <Name>HOMEBRIDGE_CONFIG_UI</Name>
+      <Value>1</Value>
+    </Variable>   
+  </Environment>
+  <Data>
+  </Data>
+  <Config Name="Config Folder" Target="/homebridge" Default="/mnt/user/appdata/homebridge" Mode="rw" Description="This is the Config Directory for the Homebridge Application" Type="Path" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="Alpine Packages" Target="PACKAGES" Default="ffmpeg" Mode="" Description="The name of the Alpine Linux packages you wish to install (Seperated by Space)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Timezone" Target="TZ" Default="America/Boise" Mode="" Description="Set the timezone information e.g. Europe/London" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="GroupID" Target="PGID" Default="1000" Mode="" Description="The name of the NPM plugins you wish to install" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="UserID" Target="PUID" Default="1000" Mode="" Description="The name of the NPM plugins you wish to install" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Config Name="HOMEBRIDGE_CONFIG_UI_PORT" Target="HOMEBRIDGE_CONFIG_UI_PORT" Default="8124" Mode="" Description="Set the homebridge-config-ui-x port to match the WebUI" Type="Variable" Display="advanced-hide" Required="true" Mask="false"/>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8124</HostPort>
+        <ContainerPort>8124</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>5353</HostPort>
+        <ContainerPort>5353</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>51826</HostPort>
+        <ContainerPort>51826</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>            
+    </Publish>    
+    <Publish>  
+  </Networking>
+  <WebUI>http://[IP]:[PORT:8124]</WebUI>
+  <Banner></Banner>
+  <Icon>https://i1.wp.com/www.deviousweb.com/wp-content/uploads/2017/06/HomeKit.png</Icon>
+</Containers>
+
+
+
+	

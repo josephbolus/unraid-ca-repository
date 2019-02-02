@@ -13,3 +13,6 @@ notes.txt
 
 # ignore virtual env
 venv
+
+# secrets
+config.json
