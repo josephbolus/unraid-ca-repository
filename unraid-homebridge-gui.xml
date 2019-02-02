@@ -20,10 +20,10 @@
       3. create the config.json in the homebridge directory (/mnt/user/appdata/homebridge/config.json)
       4. add your devices to the config.json by refering to https://github.com/nfarina/homebridge
   </Description>
-  <Registry>https://hub.docker.com/r/siwatinc/homebridge_gui_unraid/</Registry>
-  <GitHub>https://github.com/SiwatINC/unraid-ca-repository</GitHub>
-  <Repository>siwatinc/homebridge_gui_unraid</Repository>
-  <Support>https://forums.unraid.net/topic/75588-support-siwats-docker-repository/</Support>
+  <Registry>https://hub.docker.com/r/oznu/homebridge/</Registry>
+  <GitHub>https://github.com/josephbolus/unraid-ca-repository/</GitHub>
+  <Repository>oznu/docker-homebridge</Repository>
+  <Support></Support>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
   <Environment>
